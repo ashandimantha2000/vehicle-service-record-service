@@ -16,10 +16,9 @@ export class ServiceRecordsResolver {
   constructor(private readonly serviceRecordsService: ServiceRecordsService) {}
 
   @Mutation(() => ServiceRecord)
-  createServiceRecord(
-    @Args('createServiceRecordInput')
-    createServiceRecordInput: CreateServiceRecordInput,
-  ) {
+  createServiceRecordssss(
+    @Args('createServiceRecordInput') createServiceRecordInput: CreateServiceRecordInput,
+  ): Promise<ServiceRecord> {
     return this.serviceRecordsService.create(createServiceRecordInput);
   }
 

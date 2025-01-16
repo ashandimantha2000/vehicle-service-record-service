@@ -2,9 +2,17 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Vehicle {
+  vin: String!
+  carServices: [ServiceRecord!]
+  serviceRecords: [ServiceRecord!]!
+}
+
 type ServiceRecord {
-  id: String
-  service_name: String
+  id: String!
+  vin: String
+  service_name: String!
+  vehicle: Vehicle
 }
 
 type Query {
@@ -13,16 +21,18 @@ type Query {
 }
 
 type Mutation {
-  createServiceRecord(createServiceRecordInput: CreateServiceRecordInput!): ServiceRecord!
+  createServiceRecordssss(createServiceRecordInput: CreateServiceRecordInput!): ServiceRecord!
   updateServiceRecord(updateServiceRecordInput: UpdateServiceRecordInput!): ServiceRecord!
   removeServiceRecord(id: String!): ServiceRecord!
 }
 
 input CreateServiceRecordInput {
+  vin: String!
   service_name: String!
 }
 
 input UpdateServiceRecordInput {
+  vin: String
   service_name: String!
   id: String!
 }

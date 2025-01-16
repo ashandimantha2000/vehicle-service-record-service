@@ -10,6 +10,7 @@ import { ServiceRecordsModule } from './service-records/service-records.module';
   imports: [
     GraphQLModule.forRoot<ApolloFederationDriverConfig>({
       driver: ApolloFederationDriver,
+      autoSchemaFile: {path:'src/schema.gql', federation: 2},
       typePaths: ['src/schema.gql'],
     }),
     TypeOrmModule.forRoot({

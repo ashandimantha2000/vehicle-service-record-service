@@ -13,10 +13,14 @@ export class ServiceRecordsService {
   ) {}
 
   create(createServiceRecordInput: CreateServiceRecordInput): Promise<ServiceRecord> {
-    const newRecord = this.serviceRecordsRepository.create(createServiceRecordInput);
-    return this.serviceRecordsRepository.save(newRecord);
+    const serviceRecord = this.serviceRecordsRepository.create(createServiceRecordInput);
+    return this.serviceRecordsRepository.save(serviceRecord);
   }
-
+  
+  async findbyvin(vin: string): Promise<ServiceRecord[]> {
+    return this.serviceRecordsRepository.find({ where: { vin } });
+  }
+  
   findAll(): Promise<ServiceRecord[]> {
     return this.serviceRecordsRepository.find();
   }
