@@ -1,0 +1,28 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type ServiceRecord {
+  id: String
+  service_name: String
+}
+
+type Query {
+  findAllRecords: [ServiceRecord!]!
+  findOneRecord(id: String!): ServiceRecord!
+}
+
+type Mutation {
+  createServiceRecord(createServiceRecordInput: CreateServiceRecordInput!): ServiceRecord!
+  updateServiceRecord(updateServiceRecordInput: UpdateServiceRecordInput!): ServiceRecord!
+  removeServiceRecord(id: String!): ServiceRecord!
+}
+
+input CreateServiceRecordInput {
+  service_name: String!
+}
+
+input UpdateServiceRecordInput {
+  service_name: String!
+  id: String!
+}
