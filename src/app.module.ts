@@ -10,6 +10,7 @@ import { ServiceRecordsModule } from './service-records/service-records.module';
   imports: [
     GraphQLModule.forRoot<ApolloFederationDriverConfig>({
       driver: ApolloFederationDriver,
+      autoSchemaFile: {path:'src/schema.gql', federation: 2},
       typePaths: ['src/schema.gql'],
     }),
     TypeOrmModule.forRoot({
@@ -20,7 +21,7 @@ import { ServiceRecordsModule } from './service-records/service-records.module';
       password: 'root',
       database: 'service-db',
       entities: ['dist/**/*.entity{.ts,.js}'],
-      synchronize: false,
+      synchronize: true,
     }),
     ServiceRecordsModule,
   ],

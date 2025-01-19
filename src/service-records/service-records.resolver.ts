@@ -16,10 +16,9 @@ export class ServiceRecordsResolver {
   constructor(private readonly serviceRecordsService: ServiceRecordsService) {}
 
   @Mutation(() => ServiceRecord)
-  createServiceRecord(
-    @Args('createServiceRecordInput')
-    createServiceRecordInput: CreateServiceRecordInput,
-  ) {
+  createServiceRecordssss(
+    @Args('createServiceRecordInput') createServiceRecordInput: CreateServiceRecordInput,
+  ): Promise<ServiceRecord> {
     return this.serviceRecordsService.create(createServiceRecordInput);
   }
 
@@ -33,15 +32,14 @@ export class ServiceRecordsResolver {
     return this.serviceRecordsService.findOne(id);
   }
 
+
+  //Update Service Record
   @Mutation(() => ServiceRecord)
   updateServiceRecord(
-    @Args('updateServiceRecordInput')
-    updateServiceRecordInput: UpdateServiceRecordInput,
-  ) {
-    return this.serviceRecordsService.update(
-      updateServiceRecordInput.id,
-      updateServiceRecordInput,
-    );
+    @Args('id', { type: () => String }) id: string,
+    @Args('updateServiceRecordInput') updateServiceRecordInput: UpdateServiceRecordInput,
+  ): Promise<ServiceRecord> {
+    return this.serviceRecordsService.update(id, updateServiceRecordInput);
   }
 
   @Mutation(() => ServiceRecord)
@@ -49,11 +47,11 @@ export class ServiceRecordsResolver {
     return this.serviceRecordsService.remove(id);
   }
 
-  @ResolveReference()
-  resolveReference(reference: {
-    __typename: string;
-    id: string;
-  }): Promise<ServiceRecord> {
-    return this.serviceRecordsService.findOne(reference.id);
-  }
+  // @ResolveReference()
+  // resolveReference(reference: {
+  //   __typename: string;
+  //   id: string;
+  // }): Promise<ServiceRecord> {
+  //   return this.serviceRecordsService.findOne(reference.id);
+  // }
 }
