@@ -4,7 +4,6 @@
 
 type Vehicle {
   vin: String!
-  carServices: [ServiceRecord!]
   serviceRecords: [ServiceRecord!]!
 }
 
@@ -12,6 +11,7 @@ type ServiceRecord {
   id: String!
   vin: String
   service_name: String!
+  station: String!
   vehicle: Vehicle
 }
 
@@ -22,17 +22,18 @@ type Query {
 
 type Mutation {
   createServiceRecordssss(createServiceRecordInput: CreateServiceRecordInput!): ServiceRecord!
-  updateServiceRecord(updateServiceRecordInput: UpdateServiceRecordInput!): ServiceRecord!
+  updateServiceRecord(id: String!, updateServiceRecordInput: UpdateServiceRecordInput!): ServiceRecord!
   removeServiceRecord(id: String!): ServiceRecord!
 }
 
 input CreateServiceRecordInput {
   vin: String!
   service_name: String!
+  station: String!
 }
 
 input UpdateServiceRecordInput {
   vin: String
   service_name: String!
-  id: String!
+  station: String!
 }

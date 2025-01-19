@@ -7,4 +7,7 @@ export class CreateServiceRecordInput {
 
   @Field()
   service_name: string;
+
+  @Field()
+  station: string;
 }

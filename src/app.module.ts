@@ -21,7 +21,7 @@ import { ServiceRecordsModule } from './service-records/service-records.module';
       password: 'root',
       database: 'service-db',
       entities: ['dist/**/*.entity{.ts,.js}'],
-      synchronize: false,
+      synchronize: true,
     }),
     ServiceRecordsModule,
   ],

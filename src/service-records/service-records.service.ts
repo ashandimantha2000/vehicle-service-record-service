@@ -31,7 +31,11 @@ export class ServiceRecordsService {
 
   async update(id: string, updateServiceRecordInput: UpdateServiceRecordInput): Promise<ServiceRecord> {
     await this.serviceRecordsRepository.update(id, updateServiceRecordInput);
-    return this.serviceRecordsRepository.findOne({ where: { id } });
+    const updatedRecord = await this.serviceRecordsRepository.findOne({ where: { id } });
+    if (!updatedRecord) {
+      throw new Error(`ServiceRecord with id ${id} not found`);
+    }
+    return updatedRecord;
   }
 
   async remove(id: string): Promise<void> {

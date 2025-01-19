@@ -12,6 +12,6 @@ export class Vehicle {
   vin: string;
 
   //One to many relationship
-  @Field(() => [ServiceRecord], { nullable: true })
-  carServices: ServiceRecord[];
+  // @Field(() => [ServiceRecord], { nullable: true })
+  // carServices: ServiceRecord[];
 }

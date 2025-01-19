@@ -20,6 +20,10 @@ export class ServiceRecord {
   @Column()
   service_name: string;
 
+  @Field()
+  @Column()
+  station: string;
+
   //Many to one relationship
   @Field(() => Vehicle, { nullable: true })
   vehicle: Vehicle;

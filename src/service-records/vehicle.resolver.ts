@@ -11,5 +11,5 @@ export class CarRecordResolver {
   async carRecord(@Parent() car: Vehicle): Promise<ServiceRecord[]> {
     return await this.serviceRecordsService.findbyvin(car.vin);
   }
+  
 }
- 
