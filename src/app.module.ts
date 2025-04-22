@@ -15,6 +15,7 @@ import { ServiceRecordsModule } from './service-records/service-records.module';
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',
+      // host: 'vehicle-db',
       host: 'localhost',
       port: 5432,
       username: 'postgres',

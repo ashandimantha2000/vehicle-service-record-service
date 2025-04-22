@@ -11,7 +11,6 @@ export class ServiceRecord {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-
   @Field({ nullable: true })
   @Column({ nullable: true })
   vin: string;
